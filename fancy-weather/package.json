@@ -25,6 +25,7 @@
   "devDependencies": {
     "@babel/core": "^7.6.0",
     "@babel/preset-env": "^7.6.0",
+    "@types/mapbox-gl": "^1.10.2",
     "autoprefixer": "^9.6.1",
     "babel-loader": "^8.0.6",
     "copy-webpack-plugin": "^5.0.5",
@@ -54,6 +55,8 @@
   },
   "dependencies": {
     "core-js": "^3.4.7",
+    "mapbox-gl": "^1.10.1",
+    "mapbox.js": "^3.3.1",
     "regenerator-runtime": "^0.13.3",
     "swiper": "^5.3.8"
   }
