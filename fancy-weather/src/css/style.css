@@ -349,15 +349,7 @@ button {
 .map {
   height: 400px;
   border-radius: 8px;
-  clip-path: polygon(
-    0% 0%,
-    100% 0%,
-    100% 90%,
-    87% 90%,
-    81% 100%,
-    67% 90%,
-    0 90%
-  );
+  clip-path: polygon(0 0, 100% 0, 100% 90%, 75% 90%, 67% 100%, 49% 90%, 0 90%);
 }
 
 .location-information__latitude,
@@ -408,11 +400,11 @@ button {
   width: 240px;
   margin-left: -120px;
   background-color: rgb(235, 155, 155);
-  opacity: 0; 
-  transition: 1s; 
-  animation: show 1s 1, hide 1s 1; 
-  animation-fill-mode: forwards; 
-  animation-delay: 1s, 4s; 
+  opacity: 0;
+  transition: 1s;
+  animation: show 1s 1, hide 1s 1;
+  animation-fill-mode: forwards;
+  animation-delay: 1s, 4s;
   padding: 10px 10px;
 }
 .popup--green {
@@ -422,7 +414,7 @@ button {
 }
 .popup--green div {
   text-align: center;
-}  
+}
 
 .popup__message {
   color: #fff;
