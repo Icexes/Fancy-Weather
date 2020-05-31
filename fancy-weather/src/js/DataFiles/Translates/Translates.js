@@ -245,6 +245,11 @@ const translates = {
             ru: 'тише',
             en: 'quieter'
         }
+    },
+    volume : {
+        be: 'Гучнасць',
+        ru: 'Громкость',
+        en: 'Volume'
     }
 }
 
