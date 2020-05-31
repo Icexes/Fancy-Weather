@@ -55,8 +55,6 @@ export function setTime(lang = 'en', timezone) {
       year: 'numeric',
       timeZone: timezone
     })));
-    console.log(date);
-    console.log(byDate);
     const month = translates.months.be[byDate.getMonth()];
     const day = translates.days.be[byDate.getDay()];
     const dateNumber = byDate.getDate();
@@ -77,17 +75,12 @@ export async function getUserPosition() {
     };
 
     async function success(pos) {
-      console.log(pos);
       resolve(`${pos.coords.latitude},${pos.coords.longitude}`);
     };
 
     function error() {
 
-      resolve('51.508530,-0.076132'
-        //   {
-        //   latitute: '13.902334',
-        //   longitude: '17.5618791'
-      );
+      resolve('51.508530,-0.076132');
     };
 
     // eslint-disable-next-line no-unused-expressions
@@ -100,14 +93,12 @@ export const changeLocalState = (key, value) => localStorage.setItem(key, value)
 
 export const setObjToLocalState = (obj) => {
   const str = JSON.stringify(obj);
-  console.log(str, 'str');
   localStorage.setItem('weatherData', str);
 }
 
 export const getObjFromLocalState = (str) => {
   return JSON.parse(str);
 }
-
 
 export function translatePage(lang) {
   const weatherData = getObjFromLocalState(localStorage.getItem('weatherData'));
@@ -189,6 +180,7 @@ export function getFlickrTags(lat, timezone) {
   else if (hours > 16 && hours < 23)
     time = 'evening';
   else time = 'night';
+  console.log(`${time},${season},nature`);
   return `${time},${season},nature`;
 }
 
@@ -206,6 +198,7 @@ export function createMessage() {
   wind = wind.replace(/m\/s/gi, 'metres per second');
   const humidity = document.querySelector('.current-day__humidity').textContent;
   const msg = `${location}, ${temperature}${units}, ${description}, ${feelsLike}${units.charAt(1)}, ${wind}, ${humidity}`
+
   return msg;
 }
 
@@ -226,12 +219,15 @@ export function removeLoader() {
   spinner.parentNode.removeChild(spinner);
 }
 
-export function createPopup(msg) {
+export function createPopup(msg, isNotification = false) {
   const popup = document.createElement('div');
   popup.classList.add('popup');
   const popupMessage = document.createElement('div');
   popupMessage.classList.add('popup__message');
   popupMessage.textContent = msg;
+  if (isNotification) {
+    popup.classList.add('popup--green');
+  }
   popup.append(popupMessage);
   document.body.append(popup);
   setTimeout(() => popup.parentNode.removeChild(popup), 5000);

@@ -9,7 +9,7 @@ export default function createSearchForm() {
     const searchButton = document.createElement('button');
     searchButton.classList.add('search-form__sumbit-btn');
     searchButton.type = 'submit';
-    searchButton.textContent = 'Search';
+    searchButton.textContent = translates.search[localStorage.getItem('lang')];
     const voiceButton = document.createElement('button');
     voiceButton.type = 'button';
     voiceButton.classList.add('search-form__voice-btn');

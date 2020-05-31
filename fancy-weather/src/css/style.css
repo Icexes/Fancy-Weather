@@ -10,7 +10,6 @@ html {
   font-size: 12px;
 }
 body {
-  /* font-family: "Roboto", sans-serif; */
   font-family: "Titillium Web", sans-serif;
   background-color: rgba(199, 191, 191, 0.5);
   height: 100vh;
@@ -49,8 +48,6 @@ div:focus {
   display: flex;
   justify-content: space-between;
   padding: 0 5%;
-
-  /* height: 40px; */
 }
 .controls {
   display: flex;
@@ -141,7 +138,6 @@ option:hover {
   outline: none;
   background: rgba(113, 117, 119, 0.2);
   border: 1px solid rgb(78, 78, 78);
-  /* padding: 0 14px; */
   width: 40px;
   margin-left: 10px;
   border-radius: 8px;
@@ -189,10 +185,6 @@ option:hover {
   border-radius: 0 8px 8px 0;
   border-left: none;
   width: 20px;
-  /* background-image: url('/../img/common/mic.svg');
-  background-repeat: no-repeat;
-  background-size: 20px 25px;
-  background-position: 50%; */
   transition: 0.2s ease-in-out;
   margin-right: 10px;
   padding-right: 25px;
@@ -303,15 +295,11 @@ button {
   line-height: 1;
   color: #fff;
   margin-right: 20px;
-
-  /* width: 440px;
-  height: 350px; */
 }
+
 .current-day__icon {
   background-repeat: no-repeat;
   background-size: 210px;
-  /* background-position-y: 50%;
-  background-position-x: 0%; */
   background-position: -20px 0;
   height: 200px;
   width: 220px;
@@ -346,15 +334,12 @@ button {
 }
 .day__about-weather {
   display: flex;
-  /* justify-content: space-between; */
 }
 .day__icon {
   width: 53%;
   height: 60px;
   background-repeat: no-repeat;
   background-size: 78px;
-  /* background-position-y: 50%;
-  background-position-x: 0%; */
   background-position: -5px -10px;
 }
 
@@ -364,7 +349,6 @@ button {
 .map {
   height: 400px;
   border-radius: 8px;
-  /* // clip-path: circle(42.9% at 50% 50%); */
   clip-path: polygon(
     0% 0%,
     100% 0%,
@@ -424,13 +408,21 @@ button {
   width: 240px;
   margin-left: -120px;
   background-color: rgb(235, 155, 155);
-  opacity: 0; /*Элемент полностью прозрачный (невидимый)*/
-  transition: 1s; /*Скорость перехода состояния элемента*/
-  animation: show 1s 1, hide 1s 1; /* Указываем название анимации, её время и количество повторов*/
-  animation-fill-mode: forwards; /* Чтобы элемент оставался в конечном состоянии анимации */
-  animation-delay: 1s, 4s; /* Задержка перед началом */
+  opacity: 0; 
+  transition: 1s; 
+  animation: show 1s 1, hide 1s 1; 
+  animation-fill-mode: forwards; 
+  animation-delay: 1s, 4s; 
   padding: 10px 10px;
 }
+.popup--green {
+  background-color: rgba(64, 230, 174, 0.8);
+  width: 120px;
+  margin-left: -60px;
+}
+.popup--green div {
+  text-align: center;
+}  
 
 .popup__message {
   color: #fff;

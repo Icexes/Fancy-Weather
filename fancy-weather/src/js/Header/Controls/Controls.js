@@ -3,7 +3,6 @@ export default function createControls() {
     controls.classList.add('controls');
     const changeBackground = document.createElement('button');
     changeBackground.classList.add('controls__change-background');
-    // changeBackground.textContent = 'Repeat';
     const language = document.createElement('select');
     const langContainer = document.createElement('div');
     langContainer.classList.add('lang');

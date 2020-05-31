@@ -2,8 +2,6 @@ import mapboxgl from 'mapbox-gl';
 // eslint-disable-next-line import/no-cycle
 import getWeatherFromApi from '../Api/WeatherFromApi';
 
-
-
 // eslint-disable-next-line consistent-return
 export default function createMap(lat, lng) {
     const isMapCreated = document.querySelector('.map div') !== null;
@@ -12,7 +10,7 @@ export default function createMap(lat, lng) {
     if (isMapCreated) {
         window.mapElement.flyTo({
             center: [lat,lng],
-            essential: true // this animation is considered essential with respect to prefers-reduced-motion
+            essential: true 
             });
             window.MapMarker.remove();
             // eslint-disable-next-line no-unused-vars

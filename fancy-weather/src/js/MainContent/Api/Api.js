@@ -6,8 +6,6 @@ import translates from '../../DataFiles/Translates/Translates'
 
 export async function getCity(city, lang, units) {
     try {
-    console.log(lang);
-    console.log(units);
     const data = {};
     data.city = city;
     data.lang = lang;
@@ -18,7 +16,6 @@ export async function getCity(city, lang, units) {
     if (response.status >= 400) {
         throw new Error(translates.errors.api[lang])
     }
-    console.log(response, 'Response');
     const result = await response.json();
     
     if (result.results.length === 0) {
@@ -32,7 +29,6 @@ export async function getCity(city, lang, units) {
     data.lat = result.results[0].geometry.lat;
     data.lng = result.results[0].geometry.lng;
     data.timezone = result.results[0].annotations.timezone.name;
-    console.log(data);
     return data;
     }
     catch(e) {
@@ -49,7 +45,6 @@ export async function getTemperature(cityInfo) {
     const url = `https://api.openweathermap.org/data/2.5/onecall?lat=${data.lat}&lon=${data.lng}&lang=${data.lang}&exclude=minutely,hourly&units=${data.units}&appid=${key}`
     const response = await fetch(url);
     const result = await response.json();
-    console.log(result, 'reeeeeeeeeeee');
     data.todayTemperature = {
         'feelsLike': Math.round(result.current.feels_like),
         'temp': Math.round(result.current.temp),
@@ -70,7 +65,6 @@ export async function getTemperature(cityInfo) {
         nextDaysTemperature.push(dayTemperature)
     }
     data.nextDaysTemperature = nextDaysTemperature;
-    console.log(data, 'dataOTS');
     return data;
 }
 
@@ -82,9 +76,6 @@ export async function getBackgroundImage(dataInfo = {}) {
         const url = `https://www.flickr.com/services/rest/?method=flickr.photos.search&api_key=${key}&tags=${getFlickrTags(data.lat,data.timezone)}&tag_mode=all&extras=url_h&format=json&nojsoncallback=1`;
         const response = await fetch(url);
         const result = await response.json();
-        // eslint-disable-next-line no-debugger
-        debugger;
-        console.log(getFlickrTags(data.lat, data.timezone))
         data.imgSrc = result.photos.photo[randomNumber].url_h;
         data.imgSrc = data.imgSrc === 'undefined' ? 'https://images.unsplash.com/photo-1508179070693-6f044d6d1c43?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&ixid=eyJhcHBfaWQiOjEwMzQzOX0%22' : data.imgSrc;
         return data;
