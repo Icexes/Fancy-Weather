@@ -214,20 +214,32 @@ const translates = {
             en: 'Location'
         },
     notFound : {
-        be: "не найдзены",
+        be: "не знойдзены",
         ru: "не найден",
         en: "not found",
     },
     byCoordinates : {
         be: 'Горад па каардынатам',
         ru: 'Город по координатам',
-        en: 'City by coordintaes'
+        en: 'City by coordinates'
     },
-    api : {
+    apiLimit : {
         be: "дасягнута максімальная колькасць спроб да АПА, паспрабуйце пазней!",
         ru: "Достигнуто максимальное количество попыток  к АПИ, попробуйте позже!",
         en: "The maximum number of attempts to API has been reached, try later!"
+    },
+    weatherApi : {
+        be : 'Немагчыма вызначыць надвор\'е для дадзенага месца',
+        ru : 'Невозможно определить погоду для данного места',
+        en : 'Can\'t determine the weather for this place.',
+    },
+    
+    cagedataApi : {
+        be: 'Немагчыма вызначыць каардынаты дадзенага месца',
+        ru: 'Невозможно определить координаты данного места',
+        en: 'Can\'t determine the coordinates for this place.',
     }
+
     },
     voiceSpeech : {
         weather : {
@@ -250,7 +262,16 @@ const translates = {
         be: 'Гучнасць',
         ru: 'Громкость',
         en: 'Volume'
-    }
+    },    
+    notification : `<br>
+    <h4>Список Голосовых команд:</h4>
+    <p style = "text-align: justify">1. "погода, weather, надвор'е" - запуск голосового уведомления погоды(зависит от выбранного языка)</p>
+    <p style = "text-align: justify">2. "тише, цішэй, quieter" - уменьшить громкость (зависит от выбранного языка)</p>
+    <p style = "text-align: justify">3. "гучней, громче, louder" - увеличить громкость (зависит от выбранного языка)</p>
+    <br>
+    <h4>Дополнительный функционал:</h4>
+    <p style = "text-align: justify">Получение информации о текущей погоде по клику на карту</p>
+    `
 }
 
 export default translates;

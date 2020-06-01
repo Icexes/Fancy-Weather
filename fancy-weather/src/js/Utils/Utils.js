@@ -7,7 +7,6 @@ import {
 export const getNumberFromRow = (row) => row.replace(/\D+/g, "");
 
 export function convertTemperatureToF(row) {
-
   return Math.round((getNumberFromRow(row) * 9) / 5 + 32);
 }
 
@@ -18,7 +17,6 @@ export function getDegAndMinutes(deg) {
 }
 
 export function convertTemperatureToC(row) {
-
   return Math.round(((getNumberFromRow(row) - 32) * 5) / 9);
 }
 
@@ -37,6 +35,17 @@ export function changeTemperature(units) {
   })
 }
 
+export function checkTimeZone(timezone) {
+  try {
+    const date = new Date().toLocaleDateString('en', {timeZone : timezone});
+    return date;
+  }
+  catch(e) {
+    throw new Error(e.message);
+  }
+}
+
+
 export function setTime(lang = 'en', timezone) {
   let date = new Date().toLocaleString(lang, {
     weekday: 'long',
@@ -49,7 +58,7 @@ export function setTime(lang = 'en', timezone) {
     hour12: false
   })
   if (lang === 'be') {
-    const byDate = new Date(Date.parse(new Date().toLocaleString('eng', {
+    const byDate = new Date(Date.parse(new Date().toLocaleString('en', {
       month: 'short',
       day: 'numeric',
       year: 'numeric',
@@ -63,8 +72,7 @@ export function setTime(lang = 'en', timezone) {
   }
 
   document.querySelector('.weather-information__date-time').textContent = date;
-};
-
+}
 
 export async function getUserPosition() {
   return new Promise((resolve) => {
@@ -219,19 +227,35 @@ export function removeLoader() {
   spinner.parentNode.removeChild(spinner);
 }
 
-export function createPopup(msg, isNotification = false) {
+export function createPopup(msg, isNotification = false, isIntroduce = false) {
   const popup = document.createElement('div');
-  popup.classList.add('popup');
+  
   const popupMessage = document.createElement('div');
   popupMessage.classList.add('popup__message');
   popupMessage.textContent = msg;
   if (isNotification) {
     popup.classList.add('popup--green');
   }
+  if (isIntroduce) {
+    popup.classList.add('popoup__intro');
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    popup.append(btn);
+    btn.classList.add('popup__close-btn');
+    btn.onclick = () => popup.parentNode.removeChild(popup);
+    setTimeout(() => popup.parentNode.removeChild(popup), 35000);
+    popupMessage.innerHTML = translates.notification;
+  }
+  else {
+    popup.classList.add('popup');
+    setTimeout(() => popup.parentNode.removeChild(popup), 5000);
+  }
   popup.append(popupMessage);
   document.body.append(popup);
-  setTimeout(() => popup.parentNode.removeChild(popup), 5000);
 }
+
+
+
 
 export class ApiError extends Error {
   constructor(message, fromPromise) {

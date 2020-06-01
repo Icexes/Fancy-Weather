@@ -18,7 +18,7 @@ body {
       rgba(17, 17, 46, 0.46) 100%
     ),
     url("/../img/common/default_background.jpg") center center no-repeat fixed;
-  width: 100vw;
+  width: 100%;
   background-size: cover;
   transition: background 12.15s linear;
   position: relative;
@@ -397,8 +397,8 @@ button {
   top: 25px;
   left: 50%;
   border-radius: 8px;
-  width: 240px;
-  margin-left: -120px;
+  width: 300px;
+  margin-left: -150px;
   background-color: rgb(235, 155, 155);
   opacity: 0;
   transition: 1s;
@@ -407,19 +407,55 @@ button {
   animation-delay: 1s, 4s;
   padding: 10px 10px;
 }
+
 .popup--green {
   background-color: rgba(64, 230, 174, 0.8);
-  width: 120px;
-  margin-left: -60px;
+  width: 200px;
+  margin-left: -100px;
 }
-.popup--green div {
-  text-align: center;
+
+.popoup__intro {
+  position: absolute;
+  top: 25px;
+  left: 50%;
+  border-radius: 8px;
+  width: 300px;
+  margin-left: -150px;
+  background-color: rgba(66, 196, 152, 0.9);
+  opacity: 0;
+  transition: 1s;
+  animation: show 1s 1, hide 1s 1;
+  animation-fill-mode: forwards;
+  animation-delay: 4s, 30s;
+  padding: 10px 10px;
+}
+
+.popup__close-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 20px;
+  height: 20px;
+  background-image: url('/../img/common/close.svg');
+  background-position: 50%;
+  background-size: 20px;
+  outline: none;
+  border:none;
+  border-radius: 9px;
 }
 
 .popup__message {
   color: #fff;
   font-size: 1.2rem;
+  overflow: hidden;
+  text-align: center;
 }
+
+.popup--green div {
+  text-align: center;
+}
+
+
 
 @keyframes show {
   0% {

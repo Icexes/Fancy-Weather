@@ -2,7 +2,8 @@ import translates from '../../DataFiles/Translates/Translates';
 import {
     getDegAndMinutes,
     setObjToLocalState,
-    setTime
+    setTime,
+    checkTimeZone
 } from '../../Utils/Utils';
 
 export default function renderWeatherData(data) {
@@ -19,6 +20,7 @@ export default function renderWeatherData(data) {
     const lat = document.querySelector('.location-information__latitude');
     const lng = document.querySelector('.location-information__longitude');
     const img = new Image();
+    checkTimeZone(data.timezone);
     img.onload = () => {
         document.body.style = `background: linear-gradient(rgba(8, 15, 26, 0.59) 0%, rgba(17, 17, 46, 0.46) 100%), url(${img.src}) center center no-repeat fixed; background-size: cover;`
         clearInterval(window.timerId);

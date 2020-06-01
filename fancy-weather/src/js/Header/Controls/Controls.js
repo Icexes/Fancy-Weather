@@ -12,7 +12,6 @@ export default function createControls() {
     engLang.value = 'en';
     if (engLang.value === localStorage.getItem('lang'))
     engLang.selected = true; 
-    // eslint-disable-next-line no-debugger
     engLang.textContent = 'EN';
     const ruLang = document.createElement('option');
     ruLang.classList.add('language__ru');
@@ -47,6 +46,5 @@ export default function createControls() {
     speakerBtn.type = 'button';
     speakerBtn.classList.add('constrols__pronunciation');
     controls.append(changeBackground, langContainer, temperature, speakerBtn);
-    return controls;
-    
+    return controls; 
 }

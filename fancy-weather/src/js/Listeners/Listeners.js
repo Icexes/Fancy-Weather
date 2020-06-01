@@ -109,7 +109,7 @@ export default function addListeners() {
         }
         else if (result === translates.voiceSpeech.louder[localStorage.getItem('lang')]) {
             message.volume += 0.1;
-           createPopup(`${translates.volume[localStorage.getItem('lang')]} ${Math.round(message.volume)*100}%`,true);
+           createPopup(`${translates.volume[localStorage.getItem('lang')]} ${Math.round((message.volume)*100)}%`,true);
         }
 
         else if (result === translates.voiceSpeech.quieter[localStorage.getItem('lang')]) {

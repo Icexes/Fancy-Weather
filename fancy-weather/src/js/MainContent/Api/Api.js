@@ -13,8 +13,11 @@ export async function getCity(city, lang, units) {
     const key = '151e20ddc7594cc5a7e6a1f1476029f4';
     const url = `https://api.opencagedata.com/geocode/v1/json?q=${data.city}&key=${key}&language=${data.lang}&pretty=1`
     const response = await fetch(url);
+    if (response.status === 402) {
+        throw new Error(translates.errors.apiLimit[lang])
+    }
     if (response.status >= 400) {
-        throw new Error(translates.errors.api[lang])
+        throw new Error(translates.errors.cagedataApi[lang])
     }
     const result = await response.json();
     
@@ -32,8 +35,6 @@ export async function getCity(city, lang, units) {
     return data;
     }
     catch(e) {
-        // eslint-disable-next-line no-debugger
-        debugger
         throw new Error(e.message);
     }
 }
@@ -43,6 +44,7 @@ export async function getTemperature(cityInfo) {
     };
     const key = 'a9a3a62789de80865407c0452e9d1c27';
     const url = `https://api.openweathermap.org/data/2.5/onecall?lat=${data.lat}&lon=${data.lng}&lang=${data.lang}&exclude=minutely,hourly&units=${data.units}&appid=${key}`
+    try {
     const response = await fetch(url);
     const result = await response.json();
     data.todayTemperature = {
@@ -66,6 +68,9 @@ export async function getTemperature(cityInfo) {
     }
     data.nextDaysTemperature = nextDaysTemperature;
     return data;
+} catch(e) {
+    throw new Error(`${translates.errors.weatherApi[data.lang]}`);
+}
 }
 
 export async function getBackgroundImage(dataInfo = {}) {
