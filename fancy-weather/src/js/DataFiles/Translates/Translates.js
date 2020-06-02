@@ -34,6 +34,11 @@ const translates = {
         ru: ["Воскресенье", "Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота"],
         en: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
     },
+    "shortDays": {
+        be: ["Нд", "Пн", "Аў", "Ср", "Чц", "Пт", "Сб"],
+        ru: ["Вс", "Пн", "Вт", "Ср", "Чт", "Пт", "Сб"],
+        en: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+    },
     "months": {
         be: [
             "Студзеня",

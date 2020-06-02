@@ -51,7 +51,7 @@ export default function addListeners() {
             then(data => {
                 const img = new Image();
                 img.onload = () => {
-                    document.body.style = `background: linear-gradient(rgba(8, 15, 26, 0.59) 0%, rgba(17, 17, 46, 0.46) 100%), url(${img.src}) center center no-repeat fixed; background-size: cover;`
+                    document.body.style.backgroundImage  = `url(${img.src})`
                 }
                 img.src = data.imgSrc;
             }).
@@ -71,8 +71,8 @@ export default function addListeners() {
             else {
             message.text = createMessage();
             playSpeechBtn.classList.add('constrols__pronunciation--active');
-            message.lang = localStorage.getItem('lang')
-            message.rate = 1.8; ;
+            message.lang = localStorage.getItem('lang') === 'be' ? 'ru' : localStorage.getItem('lang'); 
+            message.rate = 1; 
             synth.speak(message);
         }
         }

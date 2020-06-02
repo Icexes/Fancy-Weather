@@ -22,7 +22,7 @@ export default function renderWeatherData(data) {
     const img = new Image();
     checkTimeZone(data.timezone);
     img.onload = () => {
-        document.body.style = `background: linear-gradient(rgba(8, 15, 26, 0.59) 0%, rgba(17, 17, 46, 0.46) 100%), url(${img.src}) center center no-repeat fixed; background-size: cover;`
+        document.body.style = `background-image:url(${img.src})`
         clearInterval(window.timerId);
         window.timerId = setInterval(() => {
             setTime(data.lang, data.timezone);

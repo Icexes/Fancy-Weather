@@ -48,7 +48,7 @@ export function checkTimeZone(timezone) {
 
 export function setTime(lang = 'en', timezone) {
   let date = new Date().toLocaleString(lang, {
-    weekday: 'long',
+    weekday: 'short',
     day: 'numeric',
     month: 'long',
     hour: '2-digit',
@@ -57,20 +57,17 @@ export function setTime(lang = 'en', timezone) {
     timeZone: timezone,
     hour12: false
   })
-  if (lang === 'be') {
     const byDate = new Date(Date.parse(new Date().toLocaleString('en', {
       month: 'short',
       day: 'numeric',
       year: 'numeric',
       timeZone: timezone
     })));
-    const month = translates.months.be[byDate.getMonth()];
-    const day = translates.days.be[byDate.getDay()];
+    const month = translates.months[lang][byDate.getMonth()];
+    const day = translates.shortDays[lang][byDate.getDay()];
     const dateNumber = byDate.getDate();
     const time = date.split(',').pop();
-    date = `${day}, ${dateNumber} ${month}, ${time}`
-  }
-
+    date = `${day} ${dateNumber} ${month}, ${time}`
   document.querySelector('.weather-information__date-time').textContent = date;
 }
 

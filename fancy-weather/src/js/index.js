@@ -12,13 +12,16 @@ if (!localStorage.getItem('lang')) {
 if (!localStorage.getItem('units')) {
     changeLocalState('units', 'metric');
 }
+const app = document.createElement('div');
+app.classList.add('app');
 const wrapper = document.createElement('div');
 wrapper.classList.add('wrapper');
 const header = createHeader();
 const mainContent = createMainContent();
 createLoader();
 wrapper.append(header, mainContent);
-document.body.append(wrapper);
+app.append(wrapper)
+document.body.append(app);
 getUserPosition().then((data) => getWeatherFromApi(data, localStorage.getItem('lang'), localStorage.getItem('units')));
 
 addListeners();

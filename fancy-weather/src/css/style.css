@@ -13,15 +13,14 @@ body {
   font-family: "Titillium Web", sans-serif;
   background-color: rgba(199, 191, 191, 0.5);
   height: 100vh;
-  background: linear-gradient(
-      rgba(8, 15, 26, 0.59) 0%,
-      rgba(17, 17, 46, 0.46) 100%
-    ),
-    url("/../img/common/default_background.jpg") center center no-repeat fixed;
+  background-image: url("/../img/common/default_background.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
   width: 100%;
   background-size: cover;
-  transition: background 12.15s linear;
+  transition: background-image 0.3s;
   position: relative;
+  background-attachment: fixed;
 }
 
 a {
@@ -36,6 +35,13 @@ button:hover {
 div:active,
 div:focus {
   outline: none;
+}
+.app {
+  height: 100vh;
+  background-image: linear-gradient(
+    rgba(8, 15, 26, 0.59) 0%,
+    rgba(17, 17, 46, 0.46) 100%
+  );
 }
 .wrapper {
   max-width: 1440px;
@@ -436,11 +442,11 @@ button {
   right: 20px;
   width: 20px;
   height: 20px;
-  background-image: url('/../img/common/close.svg');
+  background-image: url("/../img/common/close.svg");
   background-position: 50%;
   background-size: 20px;
   outline: none;
-  border:none;
+  border: none;
   border-radius: 9px;
 }
 
@@ -454,8 +460,6 @@ button {
 .popup--green div {
   text-align: center;
 }
-
-
 
 @keyframes show {
   0% {
@@ -477,6 +481,9 @@ button {
 @media screen and (max-width: 1150px) {
   body {
     width: 100%;
+  }
+  .app {
+    height: auto;
   }
   .main__wrapper {
     flex-direction: column;
