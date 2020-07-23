@@ -1,2 +1,1 @@
-# icexes-RS2020Q1
-Private repository for @icexes
+[Deploy](https://icexes-fancy-weather.netlify.app/)
